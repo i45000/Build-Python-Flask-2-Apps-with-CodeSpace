@@ -86,13 +86,13 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data)
+        user = User(username=form.username.data,email=form.email.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
         flash(_('Congratulations, you are now a registered user!'))
         return redirect(url_for('login'))
-    return render_template('register.html.j2', title=_('Register'), form=form)
+    return render_template('HEY_THIS_IS_ME.html.j2', title=_('Register'), form=form)
 
 
 @app.route('/reset_password_request', methods=['GET', 'POST'])
